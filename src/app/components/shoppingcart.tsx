@@ -1,9 +1,8 @@
 "use client"
-import product1img from "../assets/pl3.jpeg"
-import product1img2 from "../assets/carouselsofa.png"
+
 import { useAppContext } from "@/context"
 
-const itemdata = [
+/*const itemdata = [
     {
         id: 1,
         image: product1img,
@@ -25,7 +24,7 @@ const itemdata = [
         description:"A timeless ceramic vase with a tri color grey glaze.",
         price: 85,
     }, 
-]
+]*/
 
 const Shoppingcart = () => {
     const { cart } = useAppContext();
