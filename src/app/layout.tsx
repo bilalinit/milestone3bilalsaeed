@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Montserrat } from "next/font/google"; // Import Google Font
 import "./globals.css";
+import { AppWrapper } from "@/context";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+// Add Montserrat font
+const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-montserrat", // Optional custom CSS variable
+  weight: ["400", "500", "600", "700"], // Specify the weights you want
 });
 
 export const metadata: Metadata = {
@@ -25,9 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
-        {children}
+        <AppWrapper>{children}</AppWrapper>
       </body>
     </html>
   );
